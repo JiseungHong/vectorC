@@ -16,23 +16,22 @@ C/ C++과 python의 차이점 중 하나는 C/ C++은 Static Binding (Early Bind
 
 Function pointer이란, function (함수)의 주소값을 저장한 pointer (포인터)로서, 필요할 때마다 해당 함수를 부를 수 있도록 해주는 기법입니다. C언어에서 function pointer의 declaration (선언)은 다음과 같이 할 수 있습니다.
 
-
 > Function_return_type (*Function_Pointer_name)(Function argument list);
-
+>
 > (예시) void (*fpData)(int);
 
 
 C언어에서 function pointer의 assigning (할당)은 다음과 같이 할 수 있습니다.
 
-
 > Function_Pointer = Function_Name; or &Function_Name;
+>
 > (예시) fpData = &Call_Back_Function;
 
 
 C언어에서 function pointer의 call (호출)은 다음과 같이 할 수 있습니다.
 
-
 > (*Function_Name)(Argument_List); or (); if argument list is empty
+>
 > (예시) (*fpData)(3)
 
 
