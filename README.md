@@ -18,6 +18,7 @@ Function pointer이란, function (함수)의 주소값을 저장한 pointer (포
 
 
 > Function_return_type (*Function_Pointer_name)(Function argument list);
+
 > (예시) void (*fpData)(int);
 
 
