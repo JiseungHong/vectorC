@@ -50,5 +50,5 @@ C/ C++에서는 웬만해서는 또다른 .c 파일을 참조하지 않는 것�
 
 
 ### References
-{function pointer : https://aticleworld.com/c-function-pointer/}
-{including another .c file : https://stackoverflow.com/questions/10448047/include-c-file-in-another}
+{function pointer : https://aticleworld.com/c-function-pointer/ }
+{including another .c file : https://stackoverflow.com/questions/10448047/include-c-file-in-another }
