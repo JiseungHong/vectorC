@@ -33,23 +33,6 @@ struct sVector
     int (*pfVectorFree) (vector *);
 };
 
-void vector_init(vector *v)
-{
-    // Initialize function pointers
-    v->pfVectorTotal = vectorTotal;
-    v->pfVectorResize = vectorResize;
-    v->pfVectorAdd = vectorPushBack;
-    v->pfVectorSet = vectorSet;
-    v->pfVectorGet = vectorGet;
-    v->pfVectorFree = vectorFree;
-    v->pfVectorDelete = vectorDelete;
-    
-    // Initialize the capacity and allocate the memory
-    v->vectorList.capacity = VECTOR_INIT_CAPACITY;
-    v->vectorList.total = 0;
-    v->vectorList.items = malloc(sizeof(void *) * v->vectorList.capacity);
-}
-
 int vectorTotal(vector *v)
 {
     int totalCount = UNDEFINE;
@@ -161,7 +144,31 @@ int vectorFree(vector *v)
     return status;
 }
 
-int main(int argc, char *argv[])
+void vector_init(vector *v)
+{
+    // Initialize function pointers
+    v->pfVectorTotal = vectorTotal;
+    v->pfVectorResize = vectorResize;
+    v->pfVectorAdd = vectorPushBack;
+    v->pfVectorSet = vectorSet;
+    v->pfVectorGet = vectorGet;
+    v->pfVectorFree = vectorFree;
+    v->pfVectorDelete = vectorDelete;
+    
+    // Initialize the capacity and allocate the memory
+    v->vectorList.capacity = VECTOR_INIT_CAPACITY;
+    v->vectorList.total = 0;
+    v->vectorList.items = malloc(sizeof(void *) * v->vectorList.capacity);
+}
+
+vector solve(vector v)
+{
+    // TODO@JiseungHong
+    // Implement solve algorithm + "push_front" function in vector struct.
+    return v;
+}
+
+int main(int argc, char* argv[])
 {
     // Dimension of the POLYNOMIAL is n.
     int n = argc-1;
@@ -172,5 +179,8 @@ int main(int argc, char *argv[])
         v.pfVectorAdd(&v, argv[i+1]);
     }
 
-    printf("%s", argv);
+    vector ret = solve(v);
+    for (int i = 0; i < vectorTotal(&ret); i++){
+        printf("%s ", (char *)vectorGet(&ret, i));
+    }
 }
