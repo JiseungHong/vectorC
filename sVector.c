@@ -168,9 +168,9 @@ int main(int argc, char *argv[])
     
     // v is a vector which consists of the coefficients.
     VECTOR_INIT(v);
-    for (i = 0; i < n; i++){
+    for (int i = 0; i < n; i++){
         v.pfVectorAdd(&v, argv[i+1]);
     }
 
-    printf("%s", argv)
+    printf("%s", argv);
 }
