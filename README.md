@@ -35,5 +35,20 @@ C언어에서 function pointer의 call (호출)은 다음과 같이 할 수 있�
 > (예시) (*fpData)(3)
 
 
+C programming에서 function pointer을 활용하는 경우 중 하나는 call-back function을 코딩할 때 입니다. Call-back function와 같이 제 3자에 의해서 사용되는 경우가 많기 때문에 Runtime-Binding이 요구되며, 이 때문에 보통 library API를 통해 사용이 됩니다.
 
-(참고 : https://aticleworld.com/c-function-pointer/)
+
+### int main(int argc, char *argv[])
+C/ C++에서는 웬만해서는 또다른 .c 파일을 참조하지 않는 것이 좋습니다. Python과 같은 경우에는 "from Example import *" 등과 같이 또다른 python 파일을 import하는 경우가 많지만, C/ C++에서는 다음과 같은 이유로 사용하지 않는 편입니다.
+1. 사소한 한 줄의 include가 파일 전체를 rebuild하는 결과를 가져와, 소모적입니다.
+2. 굳이 include를 할 필요가 없다면, 파일들 간의 전체적인 구성이 잘 짜여있지 않는 한 뜻하지 않은 결함이 반드시 발생합니다.
+
+
+### Dangling Pointer
+
+
+
+
+### References
+{function pointer : https://aticleworld.com/c-function-pointer/}
+{including another .c file : https://stackoverflow.com/questions/10448047/include-c-file-in-another}
