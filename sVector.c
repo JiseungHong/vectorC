@@ -1,3 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define VECTOR_INIT_CAPACITY 6
+#define UNDEFINE  -1
+#define SUCCESS 0
+
+// Define "VECTOR_INIT(vec)" as a initialization for a vector.
+#define VECTOR_INIT(vec) vector vec;\
+ vector_init(&vec)
+
 // Data storing and tracking.
 typedef struct  sVectorList
 {
@@ -21,14 +32,6 @@ struct sVector
     int (*pfVectorDelete) (vector *, int);
     int (*pfVectorFree) (vector *);
 };
-
-#define VECTOR_INIT_CAPACITY 6
-#define UNDEFINE  -1
-#define SUCCESS 0
-
-// Define "VECTOR_INIT(vec)" a initializationo for a vector.
-#define VECTOR_INIT(vec) vector vec;\
- vector_init(&vec)
 
 void vector_init(vector *v)
 {
@@ -158,3 +161,7 @@ int vectorFree(vector *v)
     return status;
 }
 
+int main(int argc, char *argv[])
+{
+    
+}

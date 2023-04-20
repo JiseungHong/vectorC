@@ -8,7 +8,7 @@ C언어를 이용하여 직접 벡터 (vector) 구조체를 구현한 코드입�
 ## 개요
 (sVector.c) C언어에서 사용되는 structure와 function pointer을 위주로 아래에 코드에 대한 자세한 설명을 첨가하였습니다.
 
-(main.c) Vector 구조체를 이용한 여러 가지 알고리즘를 아래에 문제 설명과 해설을 첨부하여 구현해놓았습니다.
+(main.c) Vector 구조체를 이용한 알고리즘를 아래에 문제 설명과 해설을 첨부하여 구현해놓았습니다.
 
 ### Function Pointer
 C/ C++과 python의 차이점 중 하나는 C/ C++은 Static Binding (Early Binding)을 따르는 반면 python은 Runtime Binding (Late Binding)을 따른다는 것입니다. Binding은 variables (변수), functions (함수)와 연관된 attribute (속성)들에게 값을 부여하는 작업입니다. 이름에서 알 수 있듯이 Static Binding (C/C++)은 compile time에 정적으로 값을 할당하는 반면 Runtime Binding (python)은 run time에 dynamic (동적)으로 값을 할당해줍니다. Runtime Binding이 overhead가 크다는 단점이 있지만 동적으로 작동되기 때문에 갖는 이점도 있습니다. C/ C++에서 Runtime Binding polymorphism (다형성)을 구현하는 방법이 Function Pointer입니다.
@@ -44,7 +44,19 @@ C/ C++에서는 웬만해서는 또다른 .c 파일을 참조하지 않는 것�
 2. 굳이 include를 할 필요가 없다면, 파일들 간의 전체적인 구성이 잘 짜여있지 않는 한 뜻하지 않은 결함이 반드시 발생합니다.
 
 
+C/ C++에서 int argc와 char *argv[]는 main 함수에 전달되는 command line arguments의 방식을 나타냅니다. argc (argument count)는 argument의 총 개수 + 1 (프로그램의 이름까지 더해줍니다.)이고, argv (argument vector)는 arguments를 담은 배열입니다.
+
+
 ### Dangling Pointer
+[내용]
+
+
+### 알고리즘 예시
+(예제) 단변수 다항 방정식의 수치적 해법
+
+(문제 설명) *a[n]*x^n + a[n-1]*x^(n-1) + ... + a[0] = 0* 와 같은 단변수 x에 관한 다항 방정식의 해를 이분법을 이용하여 수치적으로 구한다. 추가적으로 [-L, L] 구간 내에 존재하는 해만을 구한다.
+
+(풀이) 
 
 
 
@@ -52,3 +64,4 @@ C/ C++에서는 웬만해서는 또다른 .c 파일을 참조하지 않는 것�
 ### References
 {function pointer : https://aticleworld.com/c-function-pointer/ }
 {including another .c file : https://stackoverflow.com/questions/10448047/include-c-file-in-another }
+{argc, argv : https://stackoverflow.com/questions/3024197/what-does-int-argc-char-argv-mean }
