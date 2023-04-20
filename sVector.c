@@ -163,5 +163,14 @@ int vectorFree(vector *v)
 
 int main(int argc, char *argv[])
 {
+    // Dimension of the POLYNOMIAL is n.
+    int n = argc-1;
     
+    // v is a vector which consists of the coefficients.
+    VECTOR_INIT(v);
+    for (i = 0; i < n; i++){
+        v.pfVectorAdd(&v, argv[i+1]);
+    }
+
+    printf("%s", argv)
 }
