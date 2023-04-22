@@ -59,28 +59,6 @@ int vectorResize(vector *v, int capacity)
     return status;
 }
 
-int vectorPushBack(vector *v, void *item)
-{
-    int  status = UNDEFINE;
-    if(v)
-    {
-        if (v->vectorList.capacity == v->vectorList.total)
-        {
-            status = vectorResize(v, v->vectorList.capacity * 2);
-            if(status != UNDEFINE)
-            {
-                v->vectorList.items[v->vectorList.total++] = item;
-            }
-        }
-        else
-        {
-            v->vectorList.items[v->vectorList.total++] = item;
-            status = SUCCESS;
-        }
-    }
-    return status;
-}
-
 int vectorSet(vector *v, int index, void *item)
 {
     int  status = UNDEFINE;
@@ -106,6 +84,74 @@ void *vectorGet(vector *v, int index)
         }
     }
     return readData;
+}
+
+int vectorPushBack(vector *v, void *item)
+{
+    int  status = UNDEFINE;
+    if(v)
+    {
+        if (v->vectorList.capacity == v->vectorList.total)
+        {
+            status = vectorResize(v, v->vectorList.capacity * 2);
+            if(status != UNDEFINE)
+            {
+                v->vectorList.items[v->vectorList.total++] = item;
+            }
+        }
+        else
+        {
+            v->vectorList.items[v->vectorList.total++] = item;
+            status = SUCCESS;
+        }
+    }
+    return status;
+}
+
+int vectorPushFront(vector *v, void *item)
+{
+    int status = UNDEFINE;
+    if(v)
+    {
+        if (v->vectorList.capacity == v->vectorList.total)
+        {
+            status = vectorResize(v, v->vectorList.capacity *2);
+            if (status != UNDEFINE)
+            {
+                status = UNDEFINE;
+                void *temp1 = item;
+                void *temp2;
+                int MAX = v->vectorList.total + 1;
+                for (int i = 0; i < MAX; i++){
+                    if(i != v->vectorList.total){
+                        temp2 = (char *)vectorGet(v, i);
+                        v->vectorList.items[i] = temp1;
+                        temp1 = temp2;
+                    }else{
+                        v->vectorList.items[v->vectorList.total++] = temp1;
+                        status = SUCCESS;
+                    }
+                }
+            }
+        }
+        else
+        {
+            void *temp1 = item;
+            void *temp2;
+            int MAX = v->vectorList.total + 1;
+            for (int i = 0; i < MAX; i++){
+                if(i != v->vectorList.total){
+                    temp2 = (char *)vectorGet(v, i);
+                    v->vectorList.items[i] = temp1;
+                    temp1 = temp2;
+                }else{
+                    v->vectorList.items[v->vectorList.total++] = temp1;
+                    status = SUCCESS;
+                }
+            }
+        }
+    }
+    return status;
 }
 
 int vectorDelete(vector *v, int index)
@@ -164,7 +210,7 @@ void vector_init(vector *v)
 vector solve(vector v)
 {
     // TODO@JiseungHong
-    // Implement solve algorithm + "push_front" function in vector struct.
+    // Implement solve algorithm function in vector struct.
     return v;
 }
 
@@ -176,7 +222,7 @@ int main(int argc, char* argv[])
     // v is a vector which consists of the coefficients.
     VECTOR_INIT(v);
     for (int i = 0; i < n; i++){
-        v.pfVectorAdd(&v, argv[i+1]);
+        if(vectorPushFront(&v, argv[i+1]) != SUCCESS){printf("ARGUMENT ERROR"); return -1;}
     }
 
     vector ret = solve(v);
